@@ -45,7 +45,7 @@ app.post("/api/payment/create-payment-method", async (req, res) => {
         cvc,
       },
     });
-    res.send({ data: paymentMethod });
+    res.send({ data: {methodId: paymentMethod.id} });
   } catch (err) {
     res.status(err?.statusCode || 400).send({
       error: {
